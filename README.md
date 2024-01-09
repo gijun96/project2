@@ -1,2 +1,3 @@
-# project2
- springbootProject_damoim
+# Damoim
+- 취미 공유 커뮤니티
+ 
