@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 페이지</title>
+</head>
+<body>
+    <h1>login Page</h1>
+    <p th:if="${loginFail}" th:text="${loginFail}"></p>
+    <form action="/login" role="form" method="post">
+        <label for="userId">아이디</label>
+        <input type="text"  name="userId" id="userId" placeholder="로그인 아이디">
+        <label for="userPassword">비밀번호</label>
+        <input type="password"  name="userPassword" id="userPassword" placeholder="패스워드">
+        <button type="submit">로그인</button>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    </form>
+    <a href="/">홈</a>
+</body>
+</html>
