@@ -1,60 +1,57 @@
 package com.damoim.member;
 
+import com.damoim.dto.MemberDto;
 import com.damoim.entity.Member;
+import com.damoim.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.security.Principal;
 
 @Controller
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/members")
 public class MemberController {
 
     private final MemberService memberService;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping("/login")
     public String loginPage(Model model){
-        model.addAttribute("LoginForm", new MemberDto());
-        return "member/login";
+        model.addAttribute("MemberDto", new MemberDto());
+        return "member/loginForm";
+    }
+    @GetMapping("/login/error")
+    public String loginError(Model model){
+        model.addAttribute("loginFail", "로그인 정보를 다시 확인해주시기바랍니다.");
+        return "member/loginForm";
     }
 
-    @PostMapping("/login")
-    public String login(Principal principal, Model model){
-        System.out.println("principal.getName() :"+principal.getName());
-        model.addAttribute("userId", principal.getName());
-        return "main";
-    }
 
     @GetMapping("/signup")
     public String memberForm(Model model){
-        model.addAttribute("Member", new Member());
-        return "member/signup";
+        model.addAttribute("MemberDto", new MemberDto());
+        return "members/login";
     }
 
-    @PostMapping("/signup")
-    public String signup(@Valid Member member, BindingResult result, Model model){
-        if (result.hasErrors()){
-            for (ObjectError error : result.getAllErrors()){
-                System.err.println(error.getDefaultMessage());
-            }
-            return "member/signup";
-        }
+    @PostMapping("/new")
+    public String signup(@Valid MemberDto memberDto, BindingResult result, Model model){
+        System.out.println(memberDto.toString());
         try{
-
-            memberService.saveMember(member);
+            memberService.saveMember(memberDto, passwordEncoder);
         }catch (Exception e){
+            System.out.println(e.getMessage());
             model.addAttribute("errorMessage", e.getMessage());
-            return "member/signup";
+            return "member/memberForm";
         }
 
-        return "main";
+        return "redirect:/";
     }
 }
