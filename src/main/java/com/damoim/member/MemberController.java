@@ -25,7 +25,6 @@ public class MemberController {
 
     @GetMapping("/login")
     public String loginPage(Model model){
-        model.addAttribute("MemberDto", new MemberDto());
         return "member/loginForm";
     }
     @GetMapping("/login/error")
@@ -37,7 +36,7 @@ public class MemberController {
 
     @GetMapping("/signup")
     public String memberForm(Model model){
-        model.addAttribute("MemberDto", new MemberDto());
+        model.addAttribute("memberDto", new MemberDto());
         return "member/memberForm";
     }
 

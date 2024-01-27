@@ -18,8 +18,8 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity)throws Exception{
         httpSecurity.formLogin()
                 .loginPage("/members/login")
-                .usernameParameter("userId") // 로그인 페이지의 username으로 사용할 필드의 name과 맞춰줘야함
-                .passwordParameter("userPassword")
+                .usernameParameter("loginId") // 로그인 페이지의 username으로 사용할 필드의 name과 맞춰줘야함
+                .passwordParameter("password")
                 .loginProcessingUrl("/login")   // 해당 url이 호출되면 시큐리티가 낚아채서 대신 로그인 진행
                 .defaultSuccessUrl("/")
                 .failureUrl("/members/login/error")
@@ -32,7 +32,7 @@ public class SecurityConfig {
 
         httpSecurity.authorizeRequests()
                 .mvcMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
-                .mvcMatchers("/", "/members/**").permitAll()
+                .mvcMatchers("/", "/members/**", "*").permitAll()
                 .mvcMatchers("/css/**", "/js/**", "/img/**").permitAll()
                 .anyRequest().authenticated()/* 그 외 모든 요청은 인증된 사용자만 접근이 가능하게 처리*/
         ;
