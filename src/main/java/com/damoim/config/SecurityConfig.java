@@ -1,9 +1,14 @@
 package com.damoim.config;
 
+import com.damoim.config.auth.CustomUserDetailService;
+import com.damoim.member.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -15,7 +20,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity httpSecurity)throws Exception{
+    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.formLogin()
                 .loginPage("/members/login")
                 .usernameParameter("loginId") // 로그인 페이지의 username으로 사용할 필드의 name과 맞춰줘야함
@@ -32,7 +37,7 @@ public class SecurityConfig {
 
         httpSecurity.authorizeRequests()
                 .mvcMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
-                .mvcMatchers("/", "/members/**", "*").permitAll()
+                .mvcMatchers("/", "/members/**").permitAll()
                 .mvcMatchers("/css/**", "/js/**", "/img/**").permitAll()
                 .anyRequest().authenticated()/* 그 외 모든 요청은 인증된 사용자만 접근이 가능하게 처리*/
         ;

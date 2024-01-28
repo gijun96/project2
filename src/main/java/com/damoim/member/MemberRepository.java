@@ -1,4 +1,4 @@
-package com.damoim.repository;
+package com.damoim.member;
 
 
 import com.damoim.entity.Member;

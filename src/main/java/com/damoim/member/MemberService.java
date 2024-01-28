@@ -1,13 +1,20 @@
-package com.damoim.service;
+package com.damoim.member;
 
 import com.damoim.dto.MemberDto;
 import com.damoim.entity.Member;
-import com.damoim.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityNotFoundException;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class MemberService {
 
@@ -24,7 +31,6 @@ public class MemberService {
         if (member == null){
             throw new IllegalArgumentException("유효하지 않은 아이디 입니다.");
         }
-        
 
     }
 }
