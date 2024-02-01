@@ -1,6 +1,5 @@
 package com.damoim.config;
 
-import com.damoim.config.auth.CustomUserDetailService;
 import com.damoim.member.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
