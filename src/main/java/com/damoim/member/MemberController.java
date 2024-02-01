@@ -3,6 +3,7 @@ package com.damoim.member;
 import com.damoim.dto.MemberDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.ldap.embedded.EmbeddedLdapProperties;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,8 +34,10 @@ public class MemberController {
 
 
     @GetMapping("/signup")
-    public String memberForm(Model model){
+    public String memberForm(Model model, Principal principal){
         model.addAttribute("memberDto", new MemberDto());
+        System.out.println(principal.getName());
+        System.out.println(principal.getClass());
         return "member/memberForm";
     }
 

@@ -16,9 +16,21 @@ import javax.persistence.EntityNotFoundException;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class MemberService {
+public class MemberService implements UserDetailsService {
 
     private final MemberRepository memberRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String loginId) throws UsernameNotFoundException {
+
+        Member member = memberRepository.findByLoginId(loginId);
+
+        return   User.builder()
+                .username(member.getLoginId())
+                .password(member.getPassword())
+                .roles(member.getRole().toString())
+                .build();
+    }
 
     public void saveMember(MemberDto memberDto, PasswordEncoder passwordEncoder) {
         Member member = Member.toMember(memberDto, passwordEncoder);
