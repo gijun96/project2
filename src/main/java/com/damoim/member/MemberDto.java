@@ -1,4 +1,4 @@
-package com.damoim.dto;
+package com.damoim.member;
 
 import com.damoim.constant.Gender;
 import lombok.Data;
