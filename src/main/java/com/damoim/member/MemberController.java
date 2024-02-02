@@ -21,28 +21,28 @@ public class MemberController {
     private final PasswordEncoder passwordEncoder;
 
     @GetMapping("/login")
-    public String loginPage(Model model){
+    public String loginPage(Model model) {
         return "member/loginForm";
     }
+
     @GetMapping("/login/error")
-    public String loginError(Model model){
+    public String loginError(Model model) {
         model.addAttribute("loginFail", "로그인 정보를 다시 확인해 주시기 바랍니다.");
         return "member/loginForm";
     }
 
-
-    @GetMapping("/signup")
-    public String memberForm(Model model, Principal principal){
-        model.addAttribute("memberDto", new MemberDto());
+    @GetMapping("/join")
+    public String memberForm(Model model) {
+        model.addAttribute("MemberDto", new MemberDto());
         return "member/memberForm";
     }
 
     @PostMapping("/new")
-    public String signup(@Valid MemberDto memberDto, BindingResult result, Model model){
+    public String signup(@Valid MemberDto memberDto, BindingResult result, Model model) {
         System.out.println(memberDto.toString());
-        try{
+        try {
             memberService.saveMember(memberDto, passwordEncoder);
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             model.addAttribute("errorMessage", e.getMessage());
             return "member/memberForm";
