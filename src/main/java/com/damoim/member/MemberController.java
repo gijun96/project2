@@ -33,7 +33,7 @@ public class MemberController {
 
     @GetMapping("/join")
     public String memberForm(Model model) {
-        model.addAttribute("MemberDto", new MemberDto());
+        model.addAttribute("memberDto", new MemberDto());
         return "member/memberForm";
     }
 
