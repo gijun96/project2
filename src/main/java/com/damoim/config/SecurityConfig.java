@@ -36,7 +36,7 @@ public class SecurityConfig {
 
         httpSecurity.authorizeRequests()
                 .mvcMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
-                .mvcMatchers("/", "/members/**").permitAll()
+                .mvcMatchers("/", "/members/**","/api/**").permitAll()
                 .mvcMatchers("/css/**", "/js/**", "/img/**").permitAll()
                 .anyRequest().authenticated()/* 그 외 모든 요청은 인증된 사용자만 접근이 가능하게 처리*/
         ;
