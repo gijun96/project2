@@ -23,7 +23,7 @@
 
 <body>
 
-<form action="/members/new" role="form" method="post">
+<form action="/members/new" role="form" method="post" th:object="${memberDto}">
     <div class="container">
         <div>
             <h2>회원가입</h2>
@@ -49,11 +49,11 @@
         </div>
         <div class="form-group mt-2">
             <label th:for="birth">생년월일</label>
-            <input type="text" class="form-control" placeholder="이름을 입력해주세요">
+            <input type="text" class="form-control" placeholder="생년월일을 입력해주세요">
         </div>
         <div class="form-group mt-2">
             <label th:for="email">이메일 주소</label>
-            <input type="text" class="form-control" placeholder="이름을 입력해주세요">
+            <input type="text" class="form-control" placeholder="이메일 주소를 입력해주세요" th:field="*{email}">
         </div>
         <div>
             <button type="submit" class="btn btn-success mt-4">가입하기</button>

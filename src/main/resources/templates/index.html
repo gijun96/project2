@@ -11,6 +11,9 @@
 
 <a href="articles/board">게시판</a>
 
+    <div th:if="${#authentication.principal} != null">
+        <p th:text="${#authentication.principal.username} + '님 반갑습니다.'">fd</p>
+    </div>
 
 </body>
 

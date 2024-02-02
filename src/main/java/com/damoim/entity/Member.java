@@ -1,8 +1,7 @@
 package com.damoim.entity;
 
-import com.damoim.constant.Gender;
 import com.damoim.constant.Role;
-import com.damoim.dto.MemberDto;
+import com.damoim.member.MemberDto;
 import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -18,6 +17,7 @@ public class Member extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "increment")
     @Column(name = "member_id")
     private Long id;
+
     @Column(name = "login_id", unique = true)
     private String loginId;
 

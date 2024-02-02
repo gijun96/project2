@@ -1,9 +1,13 @@
 package com.damoim.config;
 
+import com.damoim.member.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -15,11 +19,11 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity httpSecurity)throws Exception{
+    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.formLogin()
                 .loginPage("/members/login")
-                .usernameParameter("userId") // 로그인 페이지의 username으로 사용할 필드의 name과 맞춰줘야함
-                .passwordParameter("userPassword")
+                .usernameParameter("loginId") // 로그인 페이지의 username으로 사용할 필드의 name과 맞춰줘야함
+                .passwordParameter("password")
                 .loginProcessingUrl("/login")   // 해당 url이 호출되면 시큐리티가 낚아채서 대신 로그인 진행
                 .defaultSuccessUrl("/")
                 .failureUrl("/members/login/error")
