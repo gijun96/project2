@@ -39,6 +39,11 @@
             <input id="password" type="password" class="form-control" placeholder="비밀번호를 입력해주세요">
         </div>
         <div class="form-group mt-2">
+            <label th:for="password2">비밀번호 확인</label>
+            <input id="password2" type="password" class="form-control" placeholder="비밀번호를 입력해주세요">
+            <span id="passValidation"></span>
+        </div>
+        <div class="form-group mt-2">
             <label th:for="name">이름</label>
             <input id="name" type="text" class="form-control" placeholder="이름을 입력해주세요">
         </div>
@@ -46,10 +51,6 @@
             <label th:for="phone">휴대폰 번호</label>
             <input id="phone" type="text" class="form-control" placeholder="010-0000-0000">
             <button type="button" class="btn btn-primary mt-2">인증하기</button>
-        </div>
-        <div class="form-group mt-2">
-            <label th:for="birth">생년월일</label>
-            <input type="text" class="form-control" placeholder="생년월일을 입력해주세요">
         </div>
         <div class="form-group mt-2">
             <label th:for="email">이메일 주소</label>
