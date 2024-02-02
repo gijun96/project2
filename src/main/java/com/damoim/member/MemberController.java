@@ -28,6 +28,7 @@ public class MemberController {
     @GetMapping("/login/error")
     public String loginError(Model model) {
         model.addAttribute("loginFail", "로그인 정보를 다시 확인해 주시기 바랍니다.");
+
         return "member/loginForm";
     }
 
