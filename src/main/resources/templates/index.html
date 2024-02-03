@@ -19,6 +19,10 @@
 <!--    <div th:if="${#authentication.principal} != null">-->
 <!--        <p th:text="${#authentication.principal.username} + '님 반갑습니다.'">fd</p>-->
 <!--    </div>-->
+        <div sec:authorize="isAuthenticated()">
+            <b>AUthenticatid username : </b>
+            <div sec:authentication="name"></div>
+        </div>
 
         <div sec:authorize="isAuthenticated()">
             <b>AUthenticatid username : </b>
@@ -26,6 +30,8 @@
         </div>
 
 </div>
+    <div>
+
 </body>
 
 </html>
