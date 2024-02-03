@@ -34,12 +34,13 @@ public class MemberService implements UserDetailsService {
         memberRepository.save(member);
     }
 
-    public void login(MemberDto memberDto) throws Exception{
-        String userId = memberDto.getLoginId();
-        Member member = memberRepository.findByLoginId(userId);
-        if (member == null){
-            throw new IllegalArgumentException("유효하지 않은 아이디 입니다.");
+    public Boolean findId(String userId){
+        int existVal = memberRepository.existById(userId);
+        // 존재하면 1 없으면 0 출력
+        if (existVal == 1){
+            System.out.println("이미 존재하는 아이디.");
+            return false;
         }
-
+        return true;
     }
 }
