@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout}">
+
     <th:block layout:fragment="css"></th:block>
     <th:block layout:fragment="script"></th:block>
 
@@ -10,14 +11,15 @@
 </head>
 
 <body>
+
 <div layout:fragment="content">
 
 <div class="wrap">
     <div class="containerr d-flex">
 
         <div class="snslogin_container">
-            <p>로그인</p>
-            <p>다모임에서 다양한 취미를 공유해보세요!</p>
+            <p class="shadow">로그인</p>
+            <p class="shadow">다모임에서 다양한 취미를 공유해보세요!</p>
             <div>
                 <a href="#">네이버 로그인</a>
             </div>

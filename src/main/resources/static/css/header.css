@@ -1,0 +1,102 @@
+        header {
+            position: fixed;
+            z-index: 9999;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            background-color: #fff;
+            width: 100%;
+            height: 80px;
+            padding: 0 12%;
+        }
+
+        header>div {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+
+        header>div>ul {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+
+        /* 로고 */
+        header>div:nth-of-type(1) {
+            width: 30%;
+            min-width: 200px;
+        }
+
+        header>div:nth-of-type(1)>img {
+            width: 44px;
+            height: 44px;
+        }
+
+        header>div:nth-of-type(1)>h1 {
+            margin-left: 12px;
+            font-size: 2.4rem;
+        }
+
+        /* 메뉴(모임, 커뮤니티 등) */
+        header>div:nth-of-type(2) {
+            min-width: 580px;
+        }
+
+        header>div:nth-of-type(2)>ul>li {
+            font-size: 1.4rem;
+            margin-left: 44px;
+        }
+
+        /* 검색 */
+        header>div:nth-of-type(3) {
+            min-width: 300px;
+        }
+
+        header .search_form {
+            width: 80%;
+            border: 2px solid #EA5B0C;
+            transition: .1s;
+        }
+
+        header .search_form:focus {
+            outline: 6px double #EA5B0C;
+            box-shadow: none;
+        }
+
+        /* 회원정보(로그인/회원가입/마이페이지) */
+        header>div:nth-of-type(4) {
+            max-width: 100px;
+            min-width: 200px;
+        }
+
+        header>div:nth-of-type(4)>ul {
+            margin: 0 auto;
+        }
+
+        header>div:nth-of-type(4)>ul>li+li::before {
+            content: "ㅣ";
+            margin: 0 2px;
+        }
+
+        header a:hover {
+            color: #EA5B0C;
+            font-weight: 700;
+        }
+
+        header .dropdown-item:active {
+            background-color: #EA5B0C;
+        }
+
+/* 헤더 밑 컨텐츠 헤더 높이만큼 밑으로 미는 용도 */
+                .content_below_push {
+                    height: 80px;
+                }
+
+/* 알 수 없는 이유로 패딩과 마진이 생겨서 임시 조치 */
+                header > div:nth-of-type(2) > ul {
+                padding: 0;
+                margin: 0 0 2px 0;
+                }
