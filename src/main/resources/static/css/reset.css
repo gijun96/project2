@@ -10,7 +10,6 @@
     padding: 0;
 }
 
-/* 폰트 크기의 팽창을 방지합니다. */
 html {
   scroll-behavior: smooth;
 }
