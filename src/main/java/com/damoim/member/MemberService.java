@@ -1,6 +1,5 @@
 package com.damoim.member;
 
-import com.damoim.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
