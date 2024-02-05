@@ -2,6 +2,58 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <div th:fragment="header">
+
+    <header class="shadow">
+        <!-- 헤더 로고 -->
+        <div>
+            <img src="/img/favicon.png" alt="header_logo">
+            <h1><a href="/">다모임</a></h1>
+        </div>
+
+        <!-- 헤더 메뉴 -->
+        <div>
+            <ul>
+                <li><a href="#">모임</a></li>
+                <li><a href="#">커뮤니티</a></li>
+                <li><a href="#">마이페이지</a></li>
+                <li><a href="#">고객센터</a></li>
+            </ul>
+        </div>
+
+        <!-- 헤더 검색 -->
+        <div>
+            <input type="search" class="search_form form-control" placeholder="#태그를 통해 모임이나 게시글을 검색해 보세요!"
+                   aria-label="Search">
+        </div>
+
+        <!-- 로그인/로그아웃, 회원메뉴 -->
+        <div>
+            <ul>
+                <!-- 비회원 상태일 때 -->
+                <li sec:authorize="isAnonymous()"><a href="members/login">로그인</a></li>
+                <li sec:authorize="isAnonymous()"><a href="members/join">회원가입</a></li>
+
+                <!-- 회원 상태일 때 -->
+                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                   aria-expanded="false" sec:authorize="isAuthenticated()">
+                    <img src="https://github.com/mdo.png" alt="profile_img" width="36" height="36" class="rounded-circle">
+                    <span class="m-1"><span sec:authentication="Principal.username"></span>님 반갑습니다!</span>
+                </a>
+                <ul class="dropdown-menu text-small shadow">
+                    <li><a class="dropdown-item" href="#">회원정보 보기</a></li>
+                    <li><a class="dropdown-item" href="#">회원정보 변경</a></li>
+                    <li><a class="dropdown-item" href="#">모임 관리</a></li>
+                    <li><a class="dropdown-item" href="#">알림 설정</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="/members/logout">로그아웃</a></li>
+                </ul>
+            </ul>
+        </div>
+    </header>
+    <div class="content_below_push"></div>
+
 </div>
 
 </html>
