@@ -8,7 +8,7 @@
 		<version>2.7.12</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>com.damoim</groupId>
 	<artifactId>damoim</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>damoim</name>
@@ -89,13 +89,19 @@
 			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>1.7.32</version>
-			<scope>test</scope>
-		</dependency>
 
+<!-- coolSMS -->
+		<dependency>
+			<groupId>net.nurigo</groupId>
+			<artifactId>sdk</artifactId>
+			<version>4.2.7</version>
+		</dependency>
+<!--redis-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<version>3.2.1</version>
+		</dependency>
 
 
 	</dependencies>
