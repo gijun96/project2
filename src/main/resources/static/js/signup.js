@@ -45,7 +45,9 @@ $.ajax({
 const token = $("meta[name='_csrf']").attr("content")
 const header = $("meta[name='_csrf_header']").attr("content");
 
+
 // 휴대폰 문자 인증 요청
+
 $("#valid_phone").click(()=>{
     console.log("버튼 클릭!");
     var phone = $("#phone").val();
@@ -58,6 +60,7 @@ $.ajax({
     beforeSend : function(xhr){
         xhr.setRequestHeader(header, token);
     },
+
     statusCode:{
     200: function(){
         alert("인증번호가 발송되었습니다.");
@@ -100,6 +103,7 @@ $("#authenticationBtn").click(()=>{
            }
     })
 });
+
 
 
 
