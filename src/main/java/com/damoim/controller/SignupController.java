@@ -10,7 +10,6 @@ import net.nurigo.sdk.message.response.SingleMessageSentResponse;
 import net.nurigo.sdk.message.service.DefaultMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,15 +26,13 @@ public class SignupController {
     @Autowired
     private MemberService memberService;
 
+
     @Autowired
     private RedisService redisService;
     @Value("${coolsms.api.key}")
     private String apiKey;
     @Value("${coolsms.api.APISecret}")
     private String APISecret;
-
-
-
 
 // 아이디 중복 검사
     @GetMapping("/checkById")
@@ -47,7 +44,6 @@ public class SignupController {
         }
     return ResponseEntity.status(200).build();
     }
-
 
     /**
      * 단일 메시지 발송 예제
