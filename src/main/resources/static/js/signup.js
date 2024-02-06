@@ -39,6 +39,37 @@ $.ajax({
         }
     });
 
+const token = $("meta[name='_csrf']").attr("content")
+const header = $("meta[name='_csrf_header']").attr("content");
+
+
+$("#valid_phone").click(()=>{
+    console.log("버튼 클릭!");
+    var phone = $("#phone").val();
+$.ajax({
+    type:"POST",
+    url:"/api/send-one",
+    data: {
+        "phone": phone
+    },
+    beforeSend : function(xhr){
+        xhr.setRequestHeader(header, token);
+    },
+    StatusCode:{
+    200: function(){
+        alert("인증번호가 발송되었습니다.");
+    },
+    400: function(){
+        alert("인증번호 발송중 에러가 발생하였습니다.");
+    },
+    2000: function(){
+        alert("인증번호 발송, 2000");
+    }
+    }
+});
+
+})
+
 
 
 

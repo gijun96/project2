@@ -2,7 +2,6 @@ package com.damoim.member;
 
 import com.damoim.constant.Role;
 import com.damoim.entity.BaseEntity;
-import com.damoim.member.MemberDto;
 import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -26,12 +25,13 @@ public class Member extends BaseEntity {
     private String email;
 
     private String password;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 
 
-    public static com.damoim.member.Member toMember(MemberDto memberDto, PasswordEncoder passwordEncoder){
-        com.damoim.member.Member member =new com.damoim.member.Member();
+    public static Member toMember(MemberDto memberDto, PasswordEncoder passwordEncoder){
+        Member member =new Member();
         member.setLoginId(memberDto.getLoginId());
         member.setName(memberDto.getName());
         member.setEmail(memberDto.getEmail());
