@@ -50,9 +50,9 @@
 
 /* 섹션2 */
 .section2 {
-    height: 950px;
+    height: 920px;
     background-color: rgb(235, 235, 235);
-    padding: 0 100px;
+    padding: 0 8%;
 }
 
 .section23_textbox {
@@ -71,14 +71,14 @@
 
 .section2 .meeting_box {
     margin: 0 auto;
-    width: 1400px;
-    height: 500px;
+    width: 90%;
+    height: 510px;
 }
 
 .section2 .meeting_slide {
     background-color: #fff;
     width: 200px;
-    height: 500px;
+    height: 510px;
     border-radius: 15px;
 }
 
@@ -175,19 +175,21 @@
 /* 섹션3 */
 
 .section3 {
-    height: 880px;
-    padding: 0 100px;
+    min-height: 800px;
+    padding: 0 80px 60px 80px;
 }
 
 .flex {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
 }
 
 .section3 .recommendation_box {
-    width: 400px;
-    /* height: 500px; */
-    margin: 0 72px;
+    width: 350px;
+    margin: 0px 72px 16px 72px;
 }
 
 .section3 .recommendation_slide_box {
@@ -197,8 +199,8 @@
 
 .section3 .recommendation_slide {
     background-color: #444;
-    width: 400px;
-    height: 500px;
+    width: 350px;
+    height: 520px;
     border-radius: 15px;
 }
 
@@ -206,7 +208,7 @@
     color: #fff;
 }
 
-.recommendation_box > p {
+.recommendation_box>p {
     /* color: #333; */
     font-size: 1.9rem;
     font-weight: bold;
@@ -230,9 +232,8 @@
     top: 10%;
     right: 10px;
     bottom: 10%;
-    left: 10px;
+    left: 10%;
     content: "";
-    background-color: rgba(255, 255, 255, .1);
     border-radius: 5px;
 }
 
@@ -240,8 +241,26 @@
     top: -25%;
     right: auto;
     bottom: 0;
-    left: 5%;
-    background-color: #e5e5e5;
+    left: 10%;
+}
+
+.section4_description {
+    position: relative;
+    z-index: 2;
+}
+
+.section4_img1 {
+    background-image: url(/img/section4_img1.png);
+}
+
+.section4_img2 {
+    background-image: url(/img/section4_img2.png);
+}
+
+.section4_img1,
+.section4_img2 {
+    background-size: 300px 540px;
+    background-repeat: no-repeat;
 }
 
 /* 기타 */
