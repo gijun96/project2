@@ -1,107 +1,257 @@
-        header {
-            position: fixed;
-            z-index: 9999;
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-            background-color: #fff;
-            width: 100%;
-            height: 80px;
-            padding: 0 12%;
+header {
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: #fff;
+    width: 100%;
+    height: 80px;
+    padding: 0 12%;
+}
+
+header>div {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+header>div>ul {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+/* 로고 */
+header>div:nth-of-type(1) {
+    width: 30%;
+    min-width: 200px;
+}
+
+header>div:nth-of-type(1)>img {
+    width: 44px;
+    height: 44px;
+}
+
+header>div:nth-of-type(1)>h1 {
+    margin-left: 12px;
+    font-size: 2.4rem;
+}
+
+/* 햄버거 메뉴 버튼 */
+
+header .hamburger {
+    background-color: #fff;
+    width: 44px;
+    height: 40px;
+    border-radius: 15%;
+    border-color: #999;
+    /* flex에서 하나만 오른쪽 끝 정렬 */
+    margin-left: auto;
+}
+
+header .stick {
+    position: relative;
+    background-color: #444;
+    display: block;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 50%;
+    height: 3px;
+}
+
+header .stick::before {
+    content: "";
+    position: absolute;
+    background-color: #444;
+    display: block;
+    width: 100%;
+    height: 3px;
+    top: 300%;
+}
+
+header .stick::after {
+    content: "";
+    position: absolute;
+    background-color: #444;
+    display: block;
+    width: 100%;
+    height: 3px;
+    top: -300%;
+}
+
+/* 햄버거 메뉴 */
+
+header .hamburger_menu {
+    background-color: rgba(240, 240, 240, 0.9);
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 9.8%;
+    width: 100%;
+    /* 햄버거메뉴 크기 */
+    height: 280px;
+    /* border: 1px solid black; */
+    transition: .5s;
+}
+
+header .hamburger_menu li {
+    font-size: 1.7rem;
+    height: 50px;
+    /* border-bottom: 1px solid black; */
+    text-align: center;
+    transition: .5s;
+}
+
+header .hamburger_menu>div>ul>li:nth-of-type(1) {
+    margin-top: 8px;
+}
+
+header .hamburger_menu>div:nth-of-type(2) {
+    margin: 8px auto;
+    width: 400px;
+}
+
+header .hamburger_menu>div:nth-of-type(1)>img {
+    width: 44px;
+    height: 44px;
+}
+
+/* 메뉴(모임, 커뮤니티 등) */
+header>div:nth-of-type(2) {
+    min-width: 580px;
+}
+
+header>div:nth-of-type(2)>ul>li {
+    font-size: 1.4rem;
+    margin-left: 44px;
+}
+
+/* 검색 */
+header>div:nth-of-type(3) {
+    min-width: 300px;
+}
+
+header .search_form {
+    width: 80%;
+    border: 2px solid #EA5B0C;
+}
+
+header .search_form:focus {
+    outline: 6px double #EA5B0C;
+    box-shadow: none;
+    transition: .1s;
+}
+
+/* 회원정보(로그인/회원가입/마이페이지) */
+header>div:nth-of-type(4) {
+    max-width: 100px;
+    min-width: 200px;
+}
+
+header>div:nth-of-type(4)>ul {
+    margin: 0 auto;
+}
+
+header>div:nth-of-type(4)>ul>li+li::before {
+    content: "ㅣ";
+    margin: 0 2px;
+}
+
+header a:hover {
+    color: #EA5B0C;
+    font-weight: 700;
+}
+
+header .dropdown-item:active {
+    background-color: #EA5B0C;
+}
+
+        header .none {
+            display: none;
         }
 
-        header>div {
-            width: 100%;
-            height: 80px;
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-        }
-
-        header>div>ul {
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: center;
-        }
-
-        /* 로고 */
-        header>div:nth-of-type(1) {
-            width: 30%;
-            min-width: 200px;
-        }
-
-        header>div:nth-of-type(1)>img {
-            width: 44px;
-            height: 44px;
-        }
-
-        header>div:nth-of-type(1)>h1 {
-            margin-left: 12px;
-            font-size: 2.4rem;
-        }
-
-        /* 메뉴(모임, 커뮤니티 등) */
-        header>div:nth-of-type(2) {
-            min-width: 580px;
-        }
-
-        header>div:nth-of-type(2)>ul>li {
-            font-size: 1.4rem;
-            margin-left: 44px;
-        }
-
-        /* 검색 */
-        header>div:nth-of-type(3) {
-            min-width: 300px;
-        }
-
-        header .search_form {
-            width: 80%;
-            border: 2px solid #EA5B0C;
-            transition: .1s;
-        }
-
-        header .search_form:focus {
-            outline: 6px double #EA5B0C;
-            box-shadow: none;
-        }
-
-        /* 회원정보(로그인/회원가입/마이페이지) */
-        header>div:nth-of-type(4) {
-            max-width: 100px;
-            min-width: 200px;
-        }
-
-        header>div:nth-of-type(4)>ul {
-            margin: 0 auto;
-        }
-
-        header>div:nth-of-type(4)>ul>li+li::before {
-            content: "ㅣ";
-            margin: 0 2px;
-        }
-
-        header a:hover {
-            color: #EA5B0C;
-            font-weight: 700;
-        }
-
-        header .dropdown-item:active {
-            background-color: #EA5B0C;
-        }
-
-/* 헤더 밑 컨텐츠 헤더 높이만큼 밑으로 미는 용도 */
+        /* 헤더 밑 컨텐츠 헤더 높이만큼 밑으로 미는 용도 */
                 .content_below_push {
                     height: 80px;
                 }
 
-/* 알 수 없는 이유로 패딩과 마진이 생겨서 임시 조치 */
+        /* 알 수 없는 이유로 패딩과 마진이 생겨서 임시 조치 */
                 header > div:nth-of-type(2) > ul {
                 padding: 0;
                 margin: 0 0 2px 0;
                 }
 
-/* 푸터 */
+                /* 헤더 반응형 */
+
+                /* 비회원/회원란 보이기 */
+                @media screen and (max-width: 1250px) {
+
+                    header {
+                        padding: 0 6%;
+                    }
+
+
+                    /* 로고 */
+                    header>div:nth-of-type(1) {
+                        width: 0%;
+                        min-width: 170px;
+                    }
+
+                    /* 메뉴(모임, 커뮤니티 등) */
+                    header>div:nth-of-type(2) {
+                        min-width: 410px;
+                    }
+
+                    header>div:nth-of-type(2)>ul>li {
+                        font-size: 1.4rem;
+                        margin-left: 20px;
+                    }
+
+                    /* 검색 */
+                    header>div:nth-of-type(3) {
+                        min-width: 200px;
+                    }
+
+                    header .search_form {
+                        width: 100%;
+                    }
+
+                    /* 회원정보(로그인/회원가입/마이페이지) */
+                    header>div:nth-of-type(4) {
+                        margin-left: 8px;
+                        max-width: 100px;
+                        min-width: 200px;
+                    }
+
+                }
+
+                @media screen and (max-width: 900px) {
+                    header>div~div {
+                        display: none;
+                    }
+
+                    header .hamburger {
+                        display: block;
+                    }
+                }
+
+
+        /* 푸터 */
                 footer {
                     background-color: #fff;
+                }
+
+                footer a:hover {
+                            color: #EA5B0C;
+                            font-weight: 700;
+                }
+
+        /* 푸터 간격 띄우기 */
+                @media screen and (max-width: 991px) {
+                    footer > div > div > ul > li:nth-last-of-type(1) {
+                        margin-bottom: 8px;
+                    }
                 }
